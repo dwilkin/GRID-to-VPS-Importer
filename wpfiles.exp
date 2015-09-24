@@ -1,0 +1,21 @@
+#!/usr/bin/expect -f
+
+set access [lindex $argv 0]
+set user [lindex $argv 1]
+set pass [lindex $argv 2]
+set site [lindex $argv 3]
+
+# connect via scp
+spawn scp -r "$user@$access:domains/$site/html" /var/www/$site
+#######################
+expect {
+-re ".*es.*o.*" {
+exp_send "yes\r"
+exp_continue
+}
+-re ".*sword.*" {
+exp_send "$pass\r"
+}
+}
+set timeout -1;
+expect eof
