@@ -1,2 +1,1 @@
-# cicada-mojo
-Primary repository for Darian Wilkin
+Will write out an explanation of the scripts and how they should be run later.
